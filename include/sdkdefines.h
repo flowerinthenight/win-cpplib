@@ -9,21 +9,21 @@
 
 typedef HRESULT(*FnGenericFunction)(LPVOID lpParam);
 
-#define WIDEN2(x)					L##x
-#define WIDEN(x)					WIDEN2(x)
-#define __WFILE__					WIDEN(__FILE__)
-#define __WFUNC__					WIDEN(__FUNCTION__)
-#define WFN							__FUNCTIONW__
+#define WIDEN2(x)                   L##x
+#define WIDEN(x)                    WIDEN2(x)
+#define __WFILE__                   WIDEN(__FILE__)
+#define __WFUNC__                   WIDEN(__FUNCTION__)
+#define WFN                         __FUNCTIONW__
 
-#define SINGLE_DO_WHILE_START		do
-#define SINGLE_DO_WHILE_END			while (FALSE)
-#define SINGLE_DO_WHILE_BREAK		break
-#define SINGLE_DO_BREAK				break
-#define LEAVE_BLOCK					__leave
+#define SINGLE_DO_WHILE_START       do
+#define SINGLE_DO_WHILE_END         while (FALSE)
+#define SINGLE_DO_WHILE_BREAK       break
+#define SINGLE_DO_BREAK             break
+#define LEAVE_BLOCK                 __leave
 
-#define TRY_START					__try
-#define	TRY_FINALLY					__finally
-#define TRY_LEAVE					__leave
+#define TRY_START                   __try
+#define	TRY_FINALLY                 __finally
+#define TRY_LEAVE                   __leave
 
 #define CHK_FAIL_BREAK(dmp) \
 { \
