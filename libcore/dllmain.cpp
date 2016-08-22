@@ -4,7 +4,7 @@
 */
 
 #include "stdafx.h"
-#include "../etw/jysdk.h"
+#include "../etw/jytrace.h"
 
 //
 // DLL Entry Point.
@@ -14,11 +14,11 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD dwReason, LPVOID lpReserved)
     switch (dwReason)
     {
     case DLL_PROCESS_ATTACH:
-        EventRegisterJySdk();
+        EventRegisterJyTrace();
         break;
 
     case DLL_PROCESS_DETACH:
-        EventUnregisterJySdk();
+        EventUnregisterJyTrace();
         break;
 
     case DLL_THREAD_ATTACH:

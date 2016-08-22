@@ -32,7 +32,7 @@ using namespace std;
 #include <evntrace.h>
 #include <VersionHelpers.h>
 #include <PathCch.h>
-#include "../etw/jysdk.h"
+#include "../etw/jytrace.h"
 #include "../include/sdkdefines.h"
 #include "../include/sdktrace.h"
 #include <strsafe.h>

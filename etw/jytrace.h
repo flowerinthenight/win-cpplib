@@ -215,14 +215,14 @@ Remarks:
 #endif
 #endif // MCGEN_DISABLE_PROVIDER_CODE_GENERATION
 //+
-// Provider JySdk Event Count 25
+// Provider JyTrace Event Count 25
 //+
-EXTERN_C __declspec(selectany) const GUID ProviderJySdk = {0x8f58e291, 0xe24f, 0x4f9c, {0x9f, 0xc6, 0x28, 0x9c, 0x69, 0x31, 0xce, 0x7d}};
+EXTERN_C __declspec(selectany) const GUID ProviderJyTrace = {0x277c604b, 0x1962, 0x47fa, {0x93, 0x07, 0x7c, 0xe0, 0x85, 0x5d, 0xfe, 0xa6}};
 
 //
 // Channel
 //
-#define ProviderJySdk_CHANNEL_Application 0x9
+#define ProviderJyTrace_CHANNEL_Application 0x9
 //
 // Keyword
 //
@@ -310,12 +310,12 @@ EXTERN_C __declspec(selectany) const EVENT_DESCRIPTOR Simple = {0x7d, 0x0, 0x0, 
 // Event Enablement Bits
 //
 
-EXTERN_C __declspec(selectany) DECLSPEC_CACHEALIGN ULONG JySdkEnableBits[1];
-EXTERN_C __declspec(selectany) const ULONGLONG JySdkKeywords[3] = {0x1, 0x2, 0x2};
-EXTERN_C __declspec(selectany) const UCHAR JySdkLevels[3] = {5, 5, 2};
-EXTERN_C __declspec(selectany) MCGEN_TRACE_CONTEXT ProviderJySdk_Context = {0, 0, 0, 0, 0, 0, 0, 0, 3, JySdkEnableBits, JySdkKeywords, JySdkLevels};
+EXTERN_C __declspec(selectany) DECLSPEC_CACHEALIGN ULONG JyTraceEnableBits[1];
+EXTERN_C __declspec(selectany) const ULONGLONG JyTraceKeywords[3] = {0x1, 0x2, 0x2};
+EXTERN_C __declspec(selectany) const UCHAR JyTraceLevels[3] = {5, 5, 2};
+EXTERN_C __declspec(selectany) MCGEN_TRACE_CONTEXT ProviderJyTrace_Context = {0, 0, 0, 0, 0, 0, 0, 0, 3, JyTraceEnableBits, JyTraceKeywords, JyTraceLevels};
 
-EXTERN_C __declspec(selectany) REGHANDLE JySdkHandle = (REGHANDLE)0;
+EXTERN_C __declspec(selectany) REGHANDLE JyTraceHandle = (REGHANDLE)0;
 
 #if !defined(McGenEventRegisterUnregister)
 #define McGenEventRegisterUnregister
@@ -402,365 +402,365 @@ Remarks:
 //
 // Register with ETW Vista +
 //
-#ifndef EventRegisterJySdk
-#define EventRegisterJySdk() McGenEventRegister(&ProviderJySdk, McGenControlCallbackV2, &ProviderJySdk_Context, &JySdkHandle) 
+#ifndef EventRegisterJyTrace
+#define EventRegisterJyTrace() McGenEventRegister(&ProviderJyTrace, McGenControlCallbackV2, &ProviderJyTrace_Context, &JyTraceHandle) 
 #endif
 
 //
 // UnRegister with ETW
 //
-#ifndef EventUnregisterJySdk
-#define EventUnregisterJySdk() McGenEventUnregister(&JySdkHandle) 
+#ifndef EventUnregisterJyTrace
+#define EventUnregisterJyTrace() McGenEventUnregister(&JyTraceHandle) 
 #endif
 
 //
 // Enablement check macro for FunctionEntry
 //
 
-#define EventEnabledFunctionEntry() ((JySdkEnableBits[0] & 0x00000001) != 0)
+#define EventEnabledFunctionEntry() ((JyTraceEnableBits[0] & 0x00000001) != 0)
 
 //
 // Event Macro for FunctionEntry
 //
 #define EventWriteFunctionEntry(Module, File, Function)\
         EventEnabledFunctionEntry() ?\
-        Template_zss(JySdkHandle, &FunctionEntry, Module, File, Function)\
+        Template_zss(JyTraceHandle, &FunctionEntry, Module, File, Function)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for FunctionExit
 //
 
-#define EventEnabledFunctionExit() ((JySdkEnableBits[0] & 0x00000001) != 0)
+#define EventEnabledFunctionExit() ((JyTraceEnableBits[0] & 0x00000001) != 0)
 
 //
 // Event Macro for FunctionExit
 //
 #define EventWriteFunctionExit(Module, File, Function)\
         EventEnabledFunctionExit() ?\
-        Template_zss(JySdkHandle, &FunctionExit, Module, File, Function)\
+        Template_zss(JyTraceHandle, &FunctionExit, Module, File, Function)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for InfoW
 //
 
-#define EventEnabledInfoW() ((JySdkEnableBits[0] & 0x00000002) != 0)
+#define EventEnabledInfoW() ((JyTraceEnableBits[0] & 0x00000002) != 0)
 
 //
 // Event Macro for InfoW
 //
 #define EventWriteInfoW(Module, File, Function, Value)\
         EventEnabledInfoW() ?\
-        Template_zssz(JySdkHandle, &InfoW, Module, File, Function, Value)\
+        Template_zssz(JyTraceHandle, &InfoW, Module, File, Function, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for ErrorW
 //
 
-#define EventEnabledErrorW() ((JySdkEnableBits[0] & 0x00000004) != 0)
+#define EventEnabledErrorW() ((JyTraceEnableBits[0] & 0x00000004) != 0)
 
 //
 // Event Macro for ErrorW
 //
 #define EventWriteErrorW(Module, File, Function, Value)\
         EventEnabledErrorW() ?\
-        Template_zssz(JySdkHandle, &ErrorW, Module, File, Function, Value)\
+        Template_zssz(JyTraceHandle, &ErrorW, Module, File, Function, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for InfoA
 //
 
-#define EventEnabledInfoA() ((JySdkEnableBits[0] & 0x00000002) != 0)
+#define EventEnabledInfoA() ((JyTraceEnableBits[0] & 0x00000002) != 0)
 
 //
 // Event Macro for InfoA
 //
 #define EventWriteInfoA(Module, File, Function, Value)\
         EventEnabledInfoA() ?\
-        Template_zsss(JySdkHandle, &InfoA, Module, File, Function, Value)\
+        Template_zsss(JyTraceHandle, &InfoA, Module, File, Function, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for ErrorA
 //
 
-#define EventEnabledErrorA() ((JySdkEnableBits[0] & 0x00000004) != 0)
+#define EventEnabledErrorA() ((JyTraceEnableBits[0] & 0x00000004) != 0)
 
 //
 // Event Macro for ErrorA
 //
 #define EventWriteErrorA(Module, File, Function, Value)\
         EventEnabledErrorA() ?\
-        Template_zsss(JySdkHandle, &ErrorA, Module, File, Function, Value)\
+        Template_zsss(JyTraceHandle, &ErrorA, Module, File, Function, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for WideStrInfo
 //
 
-#define EventEnabledWideStrInfo() ((JySdkEnableBits[0] & 0x00000002) != 0)
+#define EventEnabledWideStrInfo() ((JyTraceEnableBits[0] & 0x00000002) != 0)
 
 //
 // Event Macro for WideStrInfo
 //
 #define EventWriteWideStrInfo(Module, File, Function, Key, Value)\
         EventEnabledWideStrInfo() ?\
-        Template_zsszz(JySdkHandle, &WideStrInfo, Module, File, Function, Key, Value)\
+        Template_zsszz(JyTraceHandle, &WideStrInfo, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for WideStrError
 //
 
-#define EventEnabledWideStrError() ((JySdkEnableBits[0] & 0x00000004) != 0)
+#define EventEnabledWideStrError() ((JyTraceEnableBits[0] & 0x00000004) != 0)
 
 //
 // Event Macro for WideStrError
 //
 #define EventWriteWideStrError(Module, File, Function, Key, Value)\
         EventEnabledWideStrError() ?\
-        Template_zsszz(JySdkHandle, &WideStrError, Module, File, Function, Key, Value)\
+        Template_zsszz(JyTraceHandle, &WideStrError, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for AnsiStrInfo
 //
 
-#define EventEnabledAnsiStrInfo() ((JySdkEnableBits[0] & 0x00000002) != 0)
+#define EventEnabledAnsiStrInfo() ((JyTraceEnableBits[0] & 0x00000002) != 0)
 
 //
 // Event Macro for AnsiStrInfo
 //
 #define EventWriteAnsiStrInfo(Module, File, Function, Key, Value)\
         EventEnabledAnsiStrInfo() ?\
-        Template_zsszs(JySdkHandle, &AnsiStrInfo, Module, File, Function, Key, Value)\
+        Template_zsszs(JyTraceHandle, &AnsiStrInfo, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for AnsiStrError
 //
 
-#define EventEnabledAnsiStrError() ((JySdkEnableBits[0] & 0x00000004) != 0)
+#define EventEnabledAnsiStrError() ((JyTraceEnableBits[0] & 0x00000004) != 0)
 
 //
 // Event Macro for AnsiStrError
 //
 #define EventWriteAnsiStrError(Module, File, Function, Key, Value)\
         EventEnabledAnsiStrError() ?\
-        Template_zsszs(JySdkHandle, &AnsiStrError, Module, File, Function, Key, Value)\
+        Template_zsszs(JyTraceHandle, &AnsiStrError, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for HresultError
 //
 
-#define EventEnabledHresultError() ((JySdkEnableBits[0] & 0x00000004) != 0)
+#define EventEnabledHresultError() ((JyTraceEnableBits[0] & 0x00000004) != 0)
 
 //
 // Event Macro for HresultError
 //
 #define EventWriteHresultError(Module, File, Function, Key, Value)\
         EventEnabledHresultError() ?\
-        Template_zsszd(JySdkHandle, &HresultError, Module, File, Function, Key, Value)\
+        Template_zsszd(JyTraceHandle, &HresultError, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for LastError
 //
 
-#define EventEnabledLastError() ((JySdkEnableBits[0] & 0x00000004) != 0)
+#define EventEnabledLastError() ((JyTraceEnableBits[0] & 0x00000004) != 0)
 
 //
 // Event Macro for LastError
 //
 #define EventWriteLastError(Module, File, Function, Key, Value)\
         EventEnabledLastError() ?\
-        Template_zsszq(JySdkHandle, &LastError, Module, File, Function, Key, Value)\
+        Template_zsszq(JyTraceHandle, &LastError, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for PointerInfo
 //
 
-#define EventEnabledPointerInfo() ((JySdkEnableBits[0] & 0x00000002) != 0)
+#define EventEnabledPointerInfo() ((JyTraceEnableBits[0] & 0x00000002) != 0)
 
 //
 // Event Macro for PointerInfo
 //
 #define EventWritePointerInfo(Module, File, Function, Key, Value)\
         EventEnabledPointerInfo() ?\
-        Template_zsszp(JySdkHandle, &PointerInfo, Module, File, Function, Key, Value)\
+        Template_zsszp(JyTraceHandle, &PointerInfo, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for PointerError
 //
 
-#define EventEnabledPointerError() ((JySdkEnableBits[0] & 0x00000004) != 0)
+#define EventEnabledPointerError() ((JyTraceEnableBits[0] & 0x00000004) != 0)
 
 //
 // Event Macro for PointerError
 //
 #define EventWritePointerError(Module, File, Function, Key, Value)\
         EventEnabledPointerError() ?\
-        Template_zsszp(JySdkHandle, &PointerError, Module, File, Function, Key, Value)\
+        Template_zsszp(JyTraceHandle, &PointerError, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for NumberInfo
 //
 
-#define EventEnabledNumberInfo() ((JySdkEnableBits[0] & 0x00000002) != 0)
+#define EventEnabledNumberInfo() ((JyTraceEnableBits[0] & 0x00000002) != 0)
 
 //
 // Event Macro for NumberInfo
 //
 #define EventWriteNumberInfo(Module, File, Function, Key, Value)\
         EventEnabledNumberInfo() ?\
-        Template_zsszd(JySdkHandle, &NumberInfo, Module, File, Function, Key, Value)\
+        Template_zsszd(JyTraceHandle, &NumberInfo, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for NumberError
 //
 
-#define EventEnabledNumberError() ((JySdkEnableBits[0] & 0x00000004) != 0)
+#define EventEnabledNumberError() ((JyTraceEnableBits[0] & 0x00000004) != 0)
 
 //
 // Event Macro for NumberError
 //
 #define EventWriteNumberError(Module, File, Function, Key, Value)\
         EventEnabledNumberError() ?\
-        Template_zsszd(JySdkHandle, &NumberError, Module, File, Function, Key, Value)\
+        Template_zsszd(JyTraceHandle, &NumberError, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for HexInfo
 //
 
-#define EventEnabledHexInfo() ((JySdkEnableBits[0] & 0x00000002) != 0)
+#define EventEnabledHexInfo() ((JyTraceEnableBits[0] & 0x00000002) != 0)
 
 //
 // Event Macro for HexInfo
 //
 #define EventWriteHexInfo(Module, File, Function, Key, Value)\
         EventEnabledHexInfo() ?\
-        Template_zsszq(JySdkHandle, &HexInfo, Module, File, Function, Key, Value)\
+        Template_zsszq(JyTraceHandle, &HexInfo, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for HexError
 //
 
-#define EventEnabledHexError() ((JySdkEnableBits[0] & 0x00000004) != 0)
+#define EventEnabledHexError() ((JyTraceEnableBits[0] & 0x00000004) != 0)
 
 //
 // Event Macro for HexError
 //
 #define EventWriteHexError(Module, File, Function, Key, Value)\
         EventEnabledHexError() ?\
-        Template_zsszq(JySdkHandle, &HexError, Module, File, Function, Key, Value)\
+        Template_zsszq(JyTraceHandle, &HexError, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for BoolInfo
 //
 
-#define EventEnabledBoolInfo() ((JySdkEnableBits[0] & 0x00000002) != 0)
+#define EventEnabledBoolInfo() ((JyTraceEnableBits[0] & 0x00000002) != 0)
 
 //
 // Event Macro for BoolInfo
 //
 #define EventWriteBoolInfo(Module, File, Function, Key, Value)\
         EventEnabledBoolInfo() ?\
-        Template_zsszt(JySdkHandle, &BoolInfo, Module, File, Function, Key, Value)\
+        Template_zsszt(JyTraceHandle, &BoolInfo, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for BoolError
 //
 
-#define EventEnabledBoolError() ((JySdkEnableBits[0] & 0x00000004) != 0)
+#define EventEnabledBoolError() ((JyTraceEnableBits[0] & 0x00000004) != 0)
 
 //
 // Event Macro for BoolError
 //
 #define EventWriteBoolError(Module, File, Function, Key, Value)\
         EventEnabledBoolError() ?\
-        Template_zsszt(JySdkHandle, &BoolError, Module, File, Function, Key, Value)\
+        Template_zsszt(JyTraceHandle, &BoolError, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for GuidInfo
 //
 
-#define EventEnabledGuidInfo() ((JySdkEnableBits[0] & 0x00000002) != 0)
+#define EventEnabledGuidInfo() ((JyTraceEnableBits[0] & 0x00000002) != 0)
 
 //
 // Event Macro for GuidInfo
 //
 #define EventWriteGuidInfo(Module, File, Function, Key, Value)\
         EventEnabledGuidInfo() ?\
-        Template_zsszj(JySdkHandle, &GuidInfo, Module, File, Function, Key, Value)\
+        Template_zsszj(JyTraceHandle, &GuidInfo, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for GuidError
 //
 
-#define EventEnabledGuidError() ((JySdkEnableBits[0] & 0x00000004) != 0)
+#define EventEnabledGuidError() ((JyTraceEnableBits[0] & 0x00000004) != 0)
 
 //
 // Event Macro for GuidError
 //
 #define EventWriteGuidError(Module, File, Function, Key, Value)\
         EventEnabledGuidError() ?\
-        Template_zsszj(JySdkHandle, &GuidError, Module, File, Function, Key, Value)\
+        Template_zsszj(JyTraceHandle, &GuidError, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for FloatInfo
 //
 
-#define EventEnabledFloatInfo() ((JySdkEnableBits[0] & 0x00000002) != 0)
+#define EventEnabledFloatInfo() ((JyTraceEnableBits[0] & 0x00000002) != 0)
 
 //
 // Event Macro for FloatInfo
 //
 #define EventWriteFloatInfo(Module, File, Function, Key, Value)\
         EventEnabledFloatInfo() ?\
-        Template_zsszf(JySdkHandle, &FloatInfo, Module, File, Function, Key, Value)\
+        Template_zsszf(JyTraceHandle, &FloatInfo, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for FloatError
 //
 
-#define EventEnabledFloatError() ((JySdkEnableBits[0] & 0x00000004) != 0)
+#define EventEnabledFloatError() ((JyTraceEnableBits[0] & 0x00000004) != 0)
 
 //
 // Event Macro for FloatError
 //
 #define EventWriteFloatError(Module, File, Function, Key, Value)\
         EventEnabledFloatError() ?\
-        Template_zsszf(JySdkHandle, &FloatError, Module, File, Function, Key, Value)\
+        Template_zsszf(JyTraceHandle, &FloatError, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 //
 // Enablement check macro for Simple
 //
 
-#define EventEnabledSimple() ((JySdkEnableBits[0] & 0x00000002) != 0)
+#define EventEnabledSimple() ((JyTraceEnableBits[0] & 0x00000002) != 0)
 
 //
 // Event Macro for Simple
 //
 #define EventWriteSimple(Module, File, Function, Key, Value)\
         EventEnabledSimple() ?\
-        Template_zzzzz(JySdkHandle, &Simple, Module, File, Function, Key, Value)\
+        Template_zzzzz(JyTraceHandle, &Simple, Module, File, Function, Key, Value)\
         : ERROR_SUCCESS\
 
 #endif // MCGEN_DISABLE_PROVIDER_CODE_GENERATION
