@@ -25,7 +25,7 @@
 #pragma comment(lib,"mfuuid.lib")
 #pragma comment(lib,"shlwapi.lib")
 
-_declspec(dllexport) HRESULT GetDefaultImageStride(IMFMediaType *pType, LONG *plStride)
+HRESULT GetDefaultImageStride(IMFMediaType *pType, LONG *plStride)
 {
     LONG lStride = 0;
 
@@ -1519,7 +1519,7 @@ private:
 //
 // Our exported CameraMf factory function.
 //
-_declspec(dllexport) HRESULT CreateCameraMfInstance(ICameraMf **ppObj)
+HRESULT CreateCameraMfInstance(ICameraMf **ppObj)
 {
     if (ppObj == NULL) return E_POINTER;
 

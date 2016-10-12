@@ -106,15 +106,13 @@ struct ICameraMf : public IUnknown {
 extern "C" {
 #endif
 
-	_declspec(dllexport) HRESULT GetDefaultImageStride(IMFMediaType *pType, LONG *plStride);
+	HRESULT GetDefaultImageStride(IMFMediaType *pType, LONG *plStride);
 
 	//
 	// Factory functions.
 	//
-	_declspec(dllexport) HRESULT CreateBufferLockInstance(IMFMediaBuffer *pBuffer, IBufferLock **ppObj);
-	_declspec(dllexport) HRESULT CreateCameraDsInstance(ICameraDs **ppObj);
-	_declspec(dllexport) HRESULT CreateCameraMfInstance(ICameraMf **ppObj);
-	_declspec(dllexport) HRESULT CreateWebcamWrapperInstance(IWebcamWrapper **ppObj);
+	HRESULT CreateCameraDsInstance(ICameraDs **ppObj);
+	HRESULT CreateCameraMfInstance(ICameraMf **ppObj);
 
 #ifdef __cplusplus
 }

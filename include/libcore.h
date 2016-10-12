@@ -253,52 +253,52 @@ extern "C" {
     //
     // Registry functions.
     //
-    _declspec(dllexport) LSTATUS ReadBin32(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, BYTE *pData, DWORD *pcbData);
-    _declspec(dllexport) LSTATUS ReadBin64(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, BYTE *pData, DWORD *pcbData);
-    _declspec(dllexport) LSTATUS ReadBinAuto(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, BYTE *pData, DWORD *pcbData);
-    _declspec(dllexport) LSTATUS WriteBin32(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, BYTE *pData, DWORD cbData);
-    _declspec(dllexport) LSTATUS WriteBin64(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, BYTE *pData, DWORD cbData);
-    _declspec(dllexport) LSTATUS WriteBinAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, BYTE *pData, DWORD cbData);
-    _declspec(dllexport) LSTATUS ReadDword32(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, DWORD *pdwData);
-    _declspec(dllexport) LSTATUS ReadDword64(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, DWORD *pdwData);
-    _declspec(dllexport) LSTATUS ReadDwordAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, DWORD *pdwData);
-    _declspec(dllexport) LSTATUS WriteDword32(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, DWORD dwData);
-    _declspec(dllexport) LSTATUS WriteDword64(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, DWORD dwData);
-    _declspec(dllexport) LSTATUS WriteDwordAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, DWORD dwData);
-    _declspec(dllexport) LSTATUS ReadSz32(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize);
-    _declspec(dllexport) LSTATUS ReadSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize);
-    _declspec(dllexport) LSTATUS WriteSz32(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, wchar_t *pszData);
-    _declspec(dllexport) LSTATUS WriteSz64(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, wchar_t *pszData);
-    _declspec(dllexport) LSTATUS WriteSzAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, wchar_t *pszData);
-    _declspec(dllexport) LSTATUS ReadMultiSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize);
-    _declspec(dllexport) LSTATUS WriteMultiSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, DWORD cbSize);
-    _declspec(dllexport) LSTATUS ReadExpandSz32(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize);
-    _declspec(dllexport) LSTATUS ReadExpandSz64(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize);
-    _declspec(dllexport) LSTATUS ReadExpandSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize);
+    LSTATUS ReadBin32(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, BYTE *pData, DWORD *pcbData);
+    LSTATUS ReadBin64(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, BYTE *pData, DWORD *pcbData);
+    LSTATUS ReadBinAuto(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, BYTE *pData, DWORD *pcbData);
+    LSTATUS WriteBin32(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, BYTE *pData, DWORD cbData);
+    LSTATUS WriteBin64(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, BYTE *pData, DWORD cbData);
+    LSTATUS WriteBinAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, BYTE *pData, DWORD cbData);
+    LSTATUS ReadDword32(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, DWORD *pdwData);
+    LSTATUS ReadDword64(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, DWORD *pdwData);
+    LSTATUS ReadDwordAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, DWORD *pdwData);
+    LSTATUS WriteDword32(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, DWORD dwData);
+    LSTATUS WriteDword64(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, DWORD dwData);
+    LSTATUS WriteDwordAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, DWORD dwData);
+    LSTATUS ReadSz32(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize);
+    LSTATUS ReadSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize);
+    LSTATUS WriteSz32(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, wchar_t *pszData);
+    LSTATUS WriteSz64(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, wchar_t *pszData);
+    LSTATUS WriteSzAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, wchar_t *pszData);
+    LSTATUS ReadMultiSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize);
+    LSTATUS WriteMultiSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, DWORD cbSize);
+    LSTATUS ReadExpandSz32(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize);
+    LSTATUS ReadExpandSz64(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize);
+    LSTATUS ReadExpandSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize);
 
     //
     // Core functions.
     //
-    _declspec(dllexport) BOOL IsWow64();
-    _declspec(dllexport) void HandleCleanup(HANDLE *pHandle);
-    _declspec(dllexport) BOOL WaitForWtsService(DWORD dwWaitMs);
-    _declspec(dllexport) void CreateGlobalEvent(HANDLE *pHandle, wchar_t *pszName, BOOL bManualReset = FALSE);
-    _declspec(dllexport) void CreateGlobalMutex(HANDLE *pHandle, wchar_t *pszName);
-    _declspec(dllexport) void SetDoubleWordAtomic(LPCRITICAL_SECTION pcs, LPDWORD pDest, DWORD dwValue);
-    _declspec(dllexport) void PrintComError(HRESULT hr, wchar_t *pszMsg);
-    _declspec(dllexport) HRESULT GetComTextError(HRESULT hr, wchar_t *pszOut, DWORD *pcchLen);
-    _declspec(dllexport) void DumpLastError(wchar_t *pszExtra);
-    _declspec(dllexport) void GetLastErrorDescription(DWORD dwLastError, wchar_t *pszOut, DWORD cchLen);
-    _declspec(dllexport) void HandleCleanup(HANDLE *pHandle);
-    _declspec(dllexport) BOOL EnableTokenPrivilege(LPTSTR szPrivilege);
-    _declspec(dllexport) BOOL IsServiceActive(wchar_t *pszName);
-    _declspec(dllexport) BOOL IsProcessInRunState(wchar_t *pszProcessName, DWORD *pdwProcessId);
-    _declspec(dllexport) BOOL SendCtrlCodeToService(wchar_t *pszSvcName, DWORD dwCtrl);
+    BOOL IsWow64();
+    void HandleCleanup(HANDLE *pHandle);
+    BOOL WaitForWtsService(DWORD dwWaitMs);
+    void CreateGlobalEvent(HANDLE *pHandle, wchar_t *pszName, BOOL bManualReset = FALSE);
+    void CreateGlobalMutex(HANDLE *pHandle, wchar_t *pszName);
+    void SetDoubleWordAtomic(LPCRITICAL_SECTION pcs, LPDWORD pDest, DWORD dwValue);
+    void PrintComError(HRESULT hr, wchar_t *pszMsg);
+    HRESULT GetComTextError(HRESULT hr, wchar_t *pszOut, DWORD *pcchLen);
+    void DumpLastError(wchar_t *pszExtra);
+    void GetLastErrorDescription(DWORD dwLastError, wchar_t *pszOut, DWORD cchLen);
+    void HandleCleanup(HANDLE *pHandle);
+    BOOL EnableTokenPrivilege(LPTSTR szPrivilege);
+    BOOL IsServiceActive(wchar_t *pszName);
+    BOOL IsProcessInRunState(wchar_t *pszProcessName, DWORD *pdwProcessId);
+    BOOL SendCtrlCodeToService(wchar_t *pszSvcName, DWORD dwCtrl);
 
     //
     // Exec family of functions.
     //
-    _declspec(dllexport) BOOL StartSystemUserProcess(
+    BOOL StartSystemUserProcess(
         wchar_t *pszCmd,
         wchar_t *pszParam,
         WINSTA0_DESKTOP winstaDesktop,
@@ -306,7 +306,7 @@ extern "C" {
         BOOL bWaitTerm,
         DWORD dwWaitMs);
 
-    _declspec(dllexport) BOOL NormalExecute(
+    BOOL NormalExecute(
         wchar_t *pszFile,
         wchar_t *pszDirectory,
         wchar_t *pszParams,
@@ -314,14 +314,14 @@ extern "C" {
         BOOL bWaitTerm,
         DWORD dwWaitMs);
 
-    _declspec(dllexport) BOOL NormalExecuteSubsys(
+    BOOL NormalExecuteSubsys(
         wchar_t *pszFile,
         wchar_t *pszParams,
         DWORD *pdwExitCode,
         BOOL bWaitTerm,
         DWORD dwWaitMs);
 
-    _declspec(dllexport) BOOL HiddenExecute(
+    BOOL HiddenExecute(
         wchar_t *pszFile,
         wchar_t *pszDirectory,
         wchar_t *pszParams,
@@ -329,14 +329,14 @@ extern "C" {
         BOOL bWaitTerm,
         DWORD dwWaitMs);
 
-    _declspec(dllexport) BOOL HiddenExecuteSubsys(
+    BOOL HiddenExecuteSubsys(
         wchar_t *pszFile,
         wchar_t *pszParams,
         DWORD *pdwExitCode,
         BOOL bWaitTerm,
         DWORD dwWaitMs);
 
-    _declspec(dllexport) BOOL ProxyRunDll32(
+    BOOL ProxyRunDll32(
         wchar_t *pszDll,
         wchar_t *pszEntry,
         wchar_t *pszParams,
@@ -344,73 +344,73 @@ extern "C" {
         BOOL bWaitTerm,
         DWORD dwWaitMs);
 
-    _declspec(dllexport) BOOL IsDllLoaded(wchar_t *pszDllName, PDWORD pdwProcessId);
-    _declspec(dllexport) LSTATUS IsDllLoaded2(wchar_t *pszDllName, PDWORD pdwPidList, PDWORD pcbCount);
-    _declspec(dllexport) BOOL SystemIsConnectedStandbyCapable();
-    _declspec(dllexport) BOOL IsWindows8();
-    _declspec(dllexport) BOOL IsWindows8OrLaterCustom();
-    _declspec(dllexport) BOOL IsWindowsBlueOrLaterCustom();
-    _declspec(dllexport) BOOL IsSupportedCameraEx(CamListLocEnum cll, wchar_t *pszFriendlyName);
-    _declspec(dllexport) BOOL GetSupportedCameraName(CamListLocEnum cll, DWORD dwIndex, wchar_t *pszFriendlyName, DWORD cchDest);
-    _declspec(dllexport) void DwordToBitStr(DWORD dwValue, DWORD cchLen, wchar_t *pszBits);
-    _declspec(dllexport) BOOL WaitForWtsService(DWORD dwWaitMs);
-    _declspec(dllexport) BOOL GetCurrentProcessPath(wchar_t *pszModulePath, DWORD *pcchLen);
-    _declspec(dllexport) BOOL IsAdminUser();
-    _declspec(dllexport) BOOL GetFileVersionInformation(wchar_t *pszFile, wchar_t *pszPreDefInfo, wchar_t *pszOutInfo, PUINT pcbOutLen);
-    _declspec(dllexport) BOOL SetEventWithCheck(HANDLE hEvent);
-    _declspec(dllexport) BOOL ResetEventWithCheck(HANDLE hEvent);
-    _declspec(dllexport) BOOL PulseEventWithCheck(HANDLE hEvent);
+    BOOL IsDllLoaded(wchar_t *pszDllName, PDWORD pdwProcessId);
+    LSTATUS IsDllLoaded2(wchar_t *pszDllName, PDWORD pdwPidList, PDWORD pcbCount);
+    BOOL SystemIsConnectedStandbyCapable();
+    BOOL IsWindows8();
+    BOOL IsWindows8OrLaterCustom();
+    BOOL IsWindowsBlueOrLaterCustom();
+    BOOL IsSupportedCameraEx(CamListLocEnum cll, wchar_t *pszFriendlyName);
+    BOOL GetSupportedCameraName(CamListLocEnum cll, DWORD dwIndex, wchar_t *pszFriendlyName, DWORD cchDest);
+    void DwordToBitStr(DWORD dwValue, DWORD cchLen, wchar_t *pszBits);
+    BOOL WaitForWtsService(DWORD dwWaitMs);
+    BOOL GetCurrentProcessPath(wchar_t *pszModulePath, DWORD *pcchLen);
+    BOOL IsAdminUser();
+    BOOL GetFileVersionInformation(wchar_t *pszFile, wchar_t *pszPreDefInfo, wchar_t *pszOutInfo, PUINT pcbOutLen);
+    BOOL SetEventWithCheck(HANDLE hEvent);
+    BOOL ResetEventWithCheck(HANDLE hEvent);
+    BOOL PulseEventWithCheck(HANDLE hEvent);
 
     //
     // WinApps functions.
     //
-    _declspec(dllexport) LONG GetWinRTApplicationInfoFromFamilyName(wchar_t *pszFamilyName, void **ppBuffer, DWORD *pcbSize, DWORD *pdwCount);
-    _declspec(dllexport) LONG GetWinRTApplicationInfoFromFullName(wchar_t *pszFullName, void **ppBuffer, DWORD *pcbSize, DWORD *pdwCount);
-    _declspec(dllexport) LONG GetWinRTApplicationFullName(const UINT32 pid, HANDLE hProcess, wchar_t *pszOutStr, DWORD *pcchOutLen);
-    _declspec(dllexport) LONG GetWinRTApplicationFamilyName(const UINT32 pid, HANDLE hProcess, wchar_t *pszOutStr, DWORD *pcchOutLen);
-    _declspec(dllexport) LONG GetWinRTApplicationUserModelId(const UINT32 pid, HANDLE hProcess, wchar_t *pszOutStr, DWORD *pcchOutLen);
-    _declspec(dllexport) HRESULT GetProcessIdFromFocusedElement(DWORD *pdwProcessId);
+    LONG GetWinRTApplicationInfoFromFamilyName(wchar_t *pszFamilyName, void **ppBuffer, DWORD *pcbSize, DWORD *pdwCount);
+    LONG GetWinRTApplicationInfoFromFullName(wchar_t *pszFullName, void **ppBuffer, DWORD *pcbSize, DWORD *pdwCount);
+    LONG GetWinRTApplicationFullName(const UINT32 pid, HANDLE hProcess, wchar_t *pszOutStr, DWORD *pcchOutLen);
+    LONG GetWinRTApplicationFamilyName(const UINT32 pid, HANDLE hProcess, wchar_t *pszOutStr, DWORD *pcchOutLen);
+    LONG GetWinRTApplicationUserModelId(const UINT32 pid, HANDLE hProcess, wchar_t *pszOutStr, DWORD *pcchOutLen);
+    HRESULT GetProcessIdFromFocusedElement(DWORD *pdwProcessId);
 
     //
     // Common4 functions (deprecated).
     //
-    _declspec(dllexport) HRESULT CreateCommon4Instance(ICommon4 **ppObj);
+    HRESULT CreateCommon4Instance(ICommon4 **ppObj);
 
     //
     // Accessibility functions.
     //
-    _declspec(dllexport) HRESULT CreateAccessibility1Instance(IAccessibility1 **ppObj);
+    HRESULT CreateAccessibility1Instance(IAccessibility1 **ppObj);
 
     //
     // APC functions.
     //
-    _declspec(dllexport) DWORD __stdcall InternalApcDispatcher(LPVOID lpData);
-    _declspec(dllexport) DWORD RunFunctionAsync(HANDLE hThread, PAPCFUNC pFunction, ULONG_PTR pData);
+    DWORD __stdcall InternalApcDispatcher(LPVOID lpData);
+    DWORD RunFunctionAsync(HANDLE hThread, PAPCFUNC pFunction, ULONG_PTR pData);
 
     //
     // App visibility functions.
     //
-    _declspec(dllexport) HRESULT CreateAppVisibilityWithCbInstance(IAppVisibilityWithCallback **ppObj);
+    HRESULT CreateAppVisibilityWithCbInstance(IAppVisibilityWithCallback **ppObj);
 
     //
     // ATL services support functions.
     //
-    _declspec(dllexport) HRESULT CreateATLServiceWinProcSupportInstance(IATLServiceWinProcSupport **ppObj);
+    HRESULT CreateATLServiceWinProcSupportInstance(IATLServiceWinProcSupport **ppObj);
 
     //
     // Event control functions.
     //
-    _declspec(dllexport) DWORD __stdcall WaitMultipleCtrl(LPVOID lpData);
+    DWORD __stdcall WaitMultipleCtrl(LPVOID lpData);
 
     //
     // Event log functions.
     //
-    _declspec(dllexport) void InternalReportEvent(EnumEventType evType, EnumEventCategory evCat, LPTSTR szMessage);
+    void InternalReportEvent(EnumEventType evType, EnumEventCategory evCat, LPTSTR szMessage);
 
     //
     // Pipe functions.
     //
-    _declspec(dllexport) BOOL CreateGlobalNamedPipe(
+    BOOL CreateGlobalNamedPipe(
         HANDLE *pPipeHandle,
         wchar_t *pszName,
         DWORD dwOpenMode,
@@ -420,7 +420,7 @@ extern "C" {
         DWORD dwInputSize,
         DWORD dwTimeout);
 
-    _declspec(dllexport) BOOL NamedPipeWriteReadSync(
+    BOOL NamedPipeWriteReadSync(
         wchar_t *pszName,
         LPVOID lpInputData,
         DWORD dwInputSize,
@@ -430,67 +430,67 @@ extern "C" {
         DWORD *pcbBytesWritten,
         DWORD *pcbBytesRead);
 
-    _declspec(dllexport) BOOL ConnectToClient(HANDLE hPipe, LPOVERLAPPED lpo);
-    _declspec(dllexport) void DisconnectAndReconnect(HANDLE hPipe, LPOVERLAPPED lpOverlap, BOOL *pbPendingIo, DWORD *pdwState);
-    _declspec(dllexport) BOOL TerminatePipeServer(wchar_t *pszPipeName);
-    _declspec(dllexport) DWORD CALLBACK DispatchPipeServerComm(LPVOID lpData);
-    _declspec(dllexport) void CALLBACK DispatchPipeServerCommWork(PTP_CALLBACK_INSTANCE pInst, PVOID pContext, PTP_WORK pWork);
+    BOOL ConnectToClient(HANDLE hPipe, LPOVERLAPPED lpo);
+    void DisconnectAndReconnect(HANDLE hPipe, LPOVERLAPPED lpOverlap, BOOL *pbPendingIo, DWORD *pdwState);
+    BOOL TerminatePipeServer(wchar_t *pszPipeName);
+    DWORD CALLBACK DispatchPipeServerComm(LPVOID lpData);
+    void CALLBACK DispatchPipeServerCommWork(PTP_CALLBACK_INSTANCE pInst, PVOID pContext, PTP_WORK pWork);
 
     //
     // Process functions.
     //
-    _declspec(dllexport) HRESULT CreateProcessUtilInstance(IProcessUtil **ppObj);
-    _declspec(dllexport) HRESULT CreateImpersonationInstance(IImpersonation **ppObj);
+    HRESULT CreateProcessUtilInstance(IProcessUtil **ppObj);
+    HRESULT CreateImpersonationInstance(IImpersonation **ppObj);
 
     //
     // Shared memory functions.
     //
-    _declspec(dllexport) HRESULT CreateSharedMemory(HANDLE *hSharedFile, wchar_t *pszName, DWORD dwSize, LPVOID *lpBuf);
-    _declspec(dllexport) HRESULT CloseSharedMemory(HANDLE *hSharedFile, LPVOID *lpBuf);
-    _declspec(dllexport) HRESULT OpenSharedMemory(HANDLE *hSharedFile, wchar_t *pszName, LPVOID *lpBuf);
+    HRESULT CreateSharedMemory(HANDLE *hSharedFile, wchar_t *pszName, DWORD dwSize, LPVOID *lpBuf);
+    HRESULT CloseSharedMemory(HANDLE *hSharedFile, LPVOID *lpBuf);
+    HRESULT OpenSharedMemory(HANDLE *hSharedFile, wchar_t *pszName, LPVOID *lpBuf);
 
     //
     // Thread functions.
     //
-    _declspec(dllexport) HRESULT CreateRunThreadInstance(IRunThread **ppObj);
+    HRESULT CreateRunThreadInstance(IRunThread **ppObj);
 
     //
     // Threadpool functions.
     //
-    _declspec(dllexport) PTP_POOL SetupThreadPool(DWORD dwMinThreads, DWORD dwMaxThreads);
-    _declspec(dllexport) PTP_CLEANUP_GROUP SetupThreadPoolCleanupGroup(PTP_CALLBACK_ENVIRON pCbEnv, PTP_CLEANUP_GROUP_CANCEL_CALLBACK pfnGrpCancelCb);
-    _declspec(dllexport) void ReleaseThreadPoolCleanupGroup(PTP_CLEANUP_GROUP pCleanupGroup, BOOL bCancel, PVOID pContext);
-    _declspec(dllexport) HRESULT CreateThreadPoolInstance(IThreadPool **ppObj);
+    PTP_POOL SetupThreadPool(DWORD dwMinThreads, DWORD dwMaxThreads);
+    PTP_CLEANUP_GROUP SetupThreadPoolCleanupGroup(PTP_CALLBACK_ENVIRON pCbEnv, PTP_CLEANUP_GROUP_CANCEL_CALLBACK pfnGrpCancelCb);
+    void ReleaseThreadPoolCleanupGroup(PTP_CLEANUP_GROUP pCleanupGroup, BOOL bCancel, PVOID pContext);
+    HRESULT CreateThreadPoolInstance(IThreadPool **ppObj);
 
     //
     // Time functions.
     //
-    _declspec(dllexport) FILETIME RelativeTime(DWORD dwMilliSecs);
-    _declspec(dllexport) FILETIME ConvertRelativeMilliSecsToFileTime(DWORD dwMilliSecs);
-    _declspec(dllexport) DWORD ConvertFiletimeToRelativeMilliSecs(FILETIME ft);
-    _declspec(dllexport) time_t ConvertFiletimeToTimet(FILETIME ft);
-    _declspec(dllexport) void ConvertTimetToFiletime(time_t t, FILETIME *pft);
-    _declspec(dllexport) LRESULT GetWindowsLastShutdownTime(FILETIME *pft);
+    FILETIME RelativeTime(DWORD dwMilliSecs);
+    FILETIME ConvertRelativeMilliSecsToFileTime(DWORD dwMilliSecs);
+    DWORD ConvertFiletimeToRelativeMilliSecs(FILETIME ft);
+    time_t ConvertFiletimeToTimet(FILETIME ft);
+    void ConvertTimetToFiletime(time_t t, FILETIME *pft);
+    LRESULT GetWindowsLastShutdownTime(FILETIME *pft);
 
     //
     // Timer functions.
     //
-    _declspec(dllexport) HRESULT CreateNoOverlapTimerInstance(INoOverlapTimer **ppObj);
+    HRESULT CreateNoOverlapTimerInstance(INoOverlapTimer **ppObj);
 
     //
     // DLL proxy functions.
     //
-    _declspec(dllexport) HRESULT CreateDllCallProxyInstance(wchar_t *pszDllName, IDllCallProxy **ppObj);
+    HRESULT CreateDllCallProxyInstance(wchar_t *pszDllName, IDllCallProxy **ppObj);
 
     //
     // PMDriver communication functions.
     //
-    _declspec(dllexport) HRESULT CreatePmDriverAccessInstance(IPmDriverAccess **ppObj);
+    HRESULT CreatePmDriverAccessInstance(IPmDriverAccess **ppObj);
 
     //
     // Window in another thread with window procedure as parameter.
     //
-    _declspec(dllexport) HRESULT CreateWindowCustomWinProcInstance(IWindowCustomWinProc **ppObj);
+    HRESULT CreateWindowCustomWinProcInstance(IWindowCustomWinProc **ppObj);
 
     //
     // UI Automation helper functions.
@@ -501,7 +501,7 @@ extern "C" {
     //
     // TEST
     //
-    _declspec(dllexport) HRESULT CreateSomeClassInstance(ISomeClass **ppObj);
+    HRESULT CreateSomeClassInstance(ISomeClass **ppObj);
 
 #ifdef __cplusplus
 }

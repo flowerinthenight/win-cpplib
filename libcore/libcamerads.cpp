@@ -1084,7 +1084,7 @@ private:
 //
 // Our exported CameraDs factory function.
 //
-_declspec(dllexport) HRESULT CreateCameraDsInstance(ICameraDs **ppObj)
+HRESULT CreateCameraDsInstance(ICameraDs **ppObj)
 {
     if (ppObj == NULL) return E_POINTER;
 

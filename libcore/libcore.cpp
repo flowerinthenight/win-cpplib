@@ -45,7 +45,7 @@ using namespace ATL;
 #pragma comment(lib, "version.lib")
 #pragma comment(lib, "pathcch.lib")
 
-_declspec(dllexport) BOOL IsWow64()
+BOOL IsWow64()
 {
     HMODULE hKernel32 = GetModuleHandle(TEXT("kernel32"));
     LPFN_ISWOW64PROCESS fnIsWow64Process;
@@ -67,7 +67,7 @@ _declspec(dllexport) BOOL IsWow64()
     return bIsWow64;
 }
 
-_declspec(dllexport) void CreateGlobalEvent(HANDLE *pHandle, TCHAR *pszName, BOOL bManualReset)
+void CreateGlobalEvent(HANDLE *pHandle, TCHAR *pszName, BOOL bManualReset)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -92,7 +92,7 @@ _declspec(dllexport) void CreateGlobalEvent(HANDLE *pHandle, TCHAR *pszName, BOO
     EventWriteFunctionExit(M, FL, FN);
 }
 
-_declspec(dllexport) void CreateGlobalMutex(HANDLE *pHandle, TCHAR *pszName)
+void CreateGlobalMutex(HANDLE *pHandle, TCHAR *pszName)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -114,14 +114,14 @@ _declspec(dllexport) void CreateGlobalMutex(HANDLE *pHandle, TCHAR *pszName)
     EventWriteFunctionExit(M, FL, FN);
 }
 
-_declspec(dllexport) void SetDoubleWordAtomic(LPCRITICAL_SECTION pcs, LPDWORD pDest, DWORD dwValue)
+void SetDoubleWordAtomic(LPCRITICAL_SECTION pcs, LPDWORD pDest, DWORD dwValue)
 {
     EnterCriticalSection(pcs);
     *pDest = dwValue;
     LeaveCriticalSection(pcs);
 }
 
-_declspec(dllexport) void PrintComError(HRESULT hr, TCHAR *pszMsg)
+void PrintComError(HRESULT hr, TCHAR *pszMsg)
 {
     _com_error err(hr);
     LPCTSTR szErrorText = err.ErrorMessage();
@@ -130,7 +130,7 @@ _declspec(dllexport) void PrintComError(HRESULT hr, TCHAR *pszMsg)
     OutputDebugString(szDump);
 }
 
-_declspec(dllexport) HRESULT GetComTextError(HRESULT hr, wchar_t *pszOut, DWORD *pcchLen)
+HRESULT GetComTextError(HRESULT hr, wchar_t *pszOut, DWORD *pcchLen)
 {
     if (!pcchLen) return E_INVALIDARG;
     if (*pcchLen < 1) return E_INVALIDARG;
@@ -144,7 +144,7 @@ _declspec(dllexport) HRESULT GetComTextError(HRESULT hr, wchar_t *pszOut, DWORD 
     return StringCchCopy(pszOut, *pcchLen, szTrace);
 }
 
-_declspec(dllexport) void DumpLastError(TCHAR *pszExtra)
+void DumpLastError(TCHAR *pszExtra)
 {
     LPVOID lpSysErrorBuff;
     LPVOID lpDisplayBuf;
@@ -191,7 +191,7 @@ _declspec(dllexport) void DumpLastError(TCHAR *pszExtra)
     }
 }
 
-_declspec(dllexport) void GetLastErrorDescription(DWORD dwLastError, wchar_t *pszOut, DWORD cchLen)
+void GetLastErrorDescription(DWORD dwLastError, wchar_t *pszOut, DWORD cchLen)
 {
     LPVOID lpSysErrorBuff;
 
@@ -220,7 +220,7 @@ _declspec(dllexport) void GetLastErrorDescription(DWORD dwLastError, wchar_t *ps
     }
 }
 
-_declspec(dllexport) void HandleCleanup(HANDLE *pHandle)
+void HandleCleanup(HANDLE *pHandle)
 {
     if (*pHandle)
     {
@@ -230,7 +230,7 @@ _declspec(dllexport) void HandleCleanup(HANDLE *pHandle)
     }
 }
 
-_declspec(dllexport) BOOL EnableTokenPrivilege(LPTSTR szPrivilege)
+BOOL EnableTokenPrivilege(LPTSTR szPrivilege)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -277,7 +277,7 @@ _declspec(dllexport) BOOL EnableTokenPrivilege(LPTSTR szPrivilege)
 // Must be admin to call this function. Also, sometimes you need to change the calling process'
 // current directory for this to be successful.
 //
-_declspec(dllexport) BOOL StartSystemUserProcess(
+BOOL StartSystemUserProcess(
     wchar_t *pszCmd,
     wchar_t *pszParam,
     WINSTA0_DESKTOP winstaDesktop,
@@ -469,7 +469,7 @@ _declspec(dllexport) BOOL StartSystemUserProcess(
     return bReturn;
 }
 
-_declspec(dllexport) BOOL IsServiceActive(wchar_t *pszName)
+BOOL IsServiceActive(wchar_t *pszName)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -512,7 +512,7 @@ _declspec(dllexport) BOOL IsServiceActive(wchar_t *pszName)
     return bReturn;
 }
 
-_declspec(dllexport) BOOL IsProcessInRunState(wchar_t *pszProcessName, DWORD *pdwProcessId)
+BOOL IsProcessInRunState(wchar_t *pszProcessName, DWORD *pdwProcessId)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -569,7 +569,7 @@ _declspec(dllexport) BOOL IsProcessInRunState(wchar_t *pszProcessName, DWORD *pd
     return bReturn;
 }
 
-_declspec(dllexport) BOOL SendCtrlCodeToService(wchar_t *pszSvcName, DWORD dwCtrl)
+BOOL SendCtrlCodeToService(wchar_t *pszSvcName, DWORD dwCtrl)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -596,7 +596,7 @@ _declspec(dllexport) BOOL SendCtrlCodeToService(wchar_t *pszSvcName, DWORD dwCtr
     return bReturn;
 }
 
-_declspec(dllexport) BOOL NormalExecute(
+BOOL NormalExecute(
     wchar_t *pszFile,
     wchar_t *pszDirectory,
     wchar_t *pszParams,
@@ -675,7 +675,7 @@ _declspec(dllexport) BOOL NormalExecute(
 // Derived from NormalExecute function. Adjacent means the function assumes that the provided filename 'pszFile' (should not include
 // directory location details, just filename) is in the same location as the process that loads this library.
 //
-_declspec(dllexport) BOOL NormalExecuteSubsys(wchar_t *pszFile, wchar_t *pszParams, DWORD *pdwExitCode, BOOL bWaitTerm, DWORD dwWaitMs)
+BOOL NormalExecuteSubsys(wchar_t *pszFile, wchar_t *pszParams, DWORD *pdwExitCode, BOOL bWaitTerm, DWORD dwWaitMs)
 {
     wchar_t szCmd[MAX_PATH] = { 0 };
     wchar_t szDir[MAX_PATH] = { 0 };
@@ -688,7 +688,7 @@ _declspec(dllexport) BOOL NormalExecuteSubsys(wchar_t *pszFile, wchar_t *pszPara
     return NormalExecute(szCmd, szDir, pszParams, pdwExitCode, bWaitTerm, dwWaitMs);
 }
 
-_declspec(dllexport) BOOL HiddenExecute(
+BOOL HiddenExecute(
     wchar_t *pszFile,
     wchar_t *pszDirectory,
     wchar_t *pszParams,
@@ -767,7 +767,7 @@ _declspec(dllexport) BOOL HiddenExecute(
 // Derived from HiddenExecute function. Adjacent means the function assumes that the provided filename 'pszFile' (should not include
 // directory location details, just filename) is in the same location as the process that loads this library.
 //
-_declspec(dllexport) BOOL HiddenExecuteSubsys(wchar_t *pszFile, wchar_t *pszParams, DWORD *pdwExitCode, BOOL bWaitTerm, DWORD dwWaitMs)
+BOOL HiddenExecuteSubsys(wchar_t *pszFile, wchar_t *pszParams, DWORD *pdwExitCode, BOOL bWaitTerm, DWORD dwWaitMs)
 {
     wchar_t szCmd[MAX_PATH] = { 0 };
     wchar_t szDir[MAX_PATH] = { 0 };
@@ -783,7 +783,7 @@ _declspec(dllexport) BOOL HiddenExecuteSubsys(wchar_t *pszFile, wchar_t *pszPara
 //
 // Run internal DLL functions using rundll32.exe host.
 //
-_declspec(dllexport) BOOL ProxyRunDll32(
+BOOL ProxyRunDll32(
     wchar_t *pszDll,
     wchar_t *pszEntry,
     wchar_t *pszParams,
@@ -816,7 +816,7 @@ _declspec(dllexport) BOOL ProxyRunDll32(
     return HiddenExecute(szCmd, szDir, szParam, pdwExitCode, bWaitTerm, dwWaitMs);
 }
 
-_declspec(dllexport) BOOL IsDllLoaded(wchar_t *pszDllName, PDWORD pdwProcessId)
+BOOL IsDllLoaded(wchar_t *pszDllName, PDWORD pdwProcessId)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -905,7 +905,7 @@ _declspec(dllexport) BOOL IsDllLoaded(wchar_t *pszDllName, PDWORD pdwProcessId)
     return bRun;
 }
 
-_declspec(dllexport) LSTATUS IsDllLoaded2(wchar_t *pszDllName, PDWORD pdwPidList, PDWORD pcbCount)
+LSTATUS IsDllLoaded2(wchar_t *pszDllName, PDWORD pdwPidList, PDWORD pcbCount)
 {
     EventWriteWideStrInfo(M, FL, FN, L"DllName", pszDllName);
     EventWritePointerInfo(M, FL, FN, L"PidList", pdwPidList);
@@ -1025,7 +1025,7 @@ _declspec(dllexport) LSTATUS IsDllLoaded2(wchar_t *pszDllName, PDWORD pdwPidList
     return lStatus;
 }
 
-_declspec(dllexport) BOOL SystemIsConnectedStandbyCapable()
+BOOL SystemIsConnectedStandbyCapable()
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -1052,14 +1052,14 @@ _declspec(dllexport) BOOL SystemIsConnectedStandbyCapable()
     return bReturn;
 }
 
-_declspec(dllexport) void DwordToBitStr(DWORD dwValue, DWORD cchLen, wchar_t *pszBits)
+void DwordToBitStr(DWORD dwValue, DWORD cchLen, wchar_t *pszBits)
 {
     bitset<32> bit((ULONGLONG)dwValue);
     wstring wstr = bit.to_string<wchar_t>();
     StringCchPrintf(pszBits, cchLen, L"%s", wstr.c_str());
 }
 
-_declspec(dllexport) BOOL WaitForWtsService(DWORD dwWaitMs)
+BOOL WaitForWtsService(DWORD dwWaitMs)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -1089,7 +1089,7 @@ _declspec(dllexport) BOOL WaitForWtsService(DWORD dwWaitMs)
     return bReturn;
 }
 
-_declspec(dllexport) BOOL GetCurrentProcessPath(wchar_t *pszModulePath, DWORD *pcchLen)
+BOOL GetCurrentProcessPath(wchar_t *pszModulePath, DWORD *pcchLen)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -1133,7 +1133,7 @@ _declspec(dllexport) BOOL GetCurrentProcessPath(wchar_t *pszModulePath, DWORD *p
     return TRUE;
 }
 
-_declspec(dllexport) BOOL IsAdminUser()
+BOOL IsAdminUser()
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -1178,7 +1178,7 @@ _declspec(dllexport) BOOL IsAdminUser()
 //
 // If *pcbSize is lesser than the actual output, API will fail and *pcbSize will contain the required output size.
 //
-_declspec(dllexport) BOOL GetFileVersionInformation(wchar_t *pszFile, wchar_t *pszPreDefInfo, wchar_t *pszOutInfo, PUINT pcbSize)
+BOOL GetFileVersionInformation(wchar_t *pszFile, wchar_t *pszPreDefInfo, wchar_t *pszOutInfo, PUINT pcbSize)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -1267,7 +1267,7 @@ _declspec(dllexport) BOOL GetFileVersionInformation(wchar_t *pszFile, wchar_t *p
     return bReturn;
 }
 
-_declspec(dllexport) BOOL SetEventWithCheck(HANDLE hEvent)
+BOOL SetEventWithCheck(HANDLE hEvent)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -1283,7 +1283,7 @@ _declspec(dllexport) BOOL SetEventWithCheck(HANDLE hEvent)
     return bReturn;
 }
 
-_declspec(dllexport) BOOL ResetEventWithCheck(HANDLE hEvent)
+BOOL ResetEventWithCheck(HANDLE hEvent)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -1299,7 +1299,7 @@ _declspec(dllexport) BOOL ResetEventWithCheck(HANDLE hEvent)
     return bReturn;
 }
 
-_declspec(dllexport) BOOL PulseEventWithCheck(HANDLE hEvent)
+BOOL PulseEventWithCheck(HANDLE hEvent)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -1315,7 +1315,7 @@ _declspec(dllexport) BOOL PulseEventWithCheck(HANDLE hEvent)
     return bReturn;
 }
 
-_declspec(dllexport) BOOL IsWindows8()
+BOOL IsWindows8()
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -1334,7 +1334,7 @@ _declspec(dllexport) BOOL IsWindows8()
     return bReturn;
 }
 
-_declspec(dllexport) BOOL IsWindows8OrLaterCustom()
+BOOL IsWindows8OrLaterCustom()
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -1363,7 +1363,7 @@ _declspec(dllexport) BOOL IsWindows8OrLaterCustom()
 //
 // Temporary version checking until build environment is upgraded to 8.1. Need to use VersionHelpers.h after update.
 //
-_declspec(dllexport) BOOL IsWindowsBlueOrLaterCustom()
+BOOL IsWindowsBlueOrLaterCustom()
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -1438,7 +1438,7 @@ inline void DumpPackageDetails(const PACKAGE_INFO *pPackageInfo)
 //
 // Caller of this function should free() ppBuffer afterwards.
 //
-_declspec(dllexport) LONG GetWinRTApplicationInfoFromFamilyName(wchar_t *pszFamilyName, void **ppBuffer, DWORD *pcbSize, DWORD *pdwCount)
+LONG GetWinRTApplicationInfoFromFamilyName(wchar_t *pszFamilyName, void **ppBuffer, DWORD *pcbSize, DWORD *pdwCount)
 {
     EventWriteWideStrInfo(M, FL, FN, L"FamilyName", pszFamilyName);
     EventWritePointerInfo(M, FL, FN, L"OutBuffer", ppBuffer);
@@ -1513,7 +1513,7 @@ _declspec(dllexport) LONG GetWinRTApplicationInfoFromFamilyName(wchar_t *pszFami
 //
 // Caller of this function should free() ppBuffer afterwards.
 //
-_declspec(dllexport) LONG GetWinRTApplicationInfoFromFullName(wchar_t *pszFullName, void **ppBuffer, DWORD *pcbSize, DWORD *pdwCount)
+LONG GetWinRTApplicationInfoFromFullName(wchar_t *pszFullName, void **ppBuffer, DWORD *pcbSize, DWORD *pdwCount)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -1588,7 +1588,7 @@ _declspec(dllexport) LONG GetWinRTApplicationInfoFromFullName(wchar_t *pszFullNa
     return rc;
 }
 
-_declspec(dllexport) LONG GetWinRTApplicationFullName(const UINT32 pid, HANDLE hProcess, wchar_t *pszOutStr, DWORD *pcchOutLen)
+LONG GetWinRTApplicationFullName(const UINT32 pid, HANDLE hProcess, wchar_t *pszOutStr, DWORD *pcchOutLen)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -1655,7 +1655,7 @@ _declspec(dllexport) LONG GetWinRTApplicationFullName(const UINT32 pid, HANDLE h
     return rc;
 }
 
-_declspec(dllexport) LONG GetWinRTApplicationFamilyName(const UINT32 pid, HANDLE hProcess, wchar_t *pszOutStr, DWORD *pcchOutLen)
+LONG GetWinRTApplicationFamilyName(const UINT32 pid, HANDLE hProcess, wchar_t *pszOutStr, DWORD *pcchOutLen)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -1722,7 +1722,7 @@ _declspec(dllexport) LONG GetWinRTApplicationFamilyName(const UINT32 pid, HANDLE
     return rc;
 }
 
-_declspec(dllexport) LONG GetWinRTApplicationUserModelId(const UINT32 pid, HANDLE hProcess, wchar_t *pszOutStr, DWORD *pcchOutLen)
+LONG GetWinRTApplicationUserModelId(const UINT32 pid, HANDLE hProcess, wchar_t *pszOutStr, DWORD *pcchOutLen)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -1850,7 +1850,7 @@ HRESULT GetMainParentElement(IUIAutomation** ppAuto, IUIAutomationElement** ppCh
 //
 // Need to call CoInitialize(...) before calling this function.
 //
-_declspec(dllexport) HRESULT GetProcessIdFromFocusedElement(DWORD *pdwProcessId)
+HRESULT GetProcessIdFromFocusedElement(DWORD *pdwProcessId)
 {
     EventWriteFunctionEntry(M, FL, FN);
 
@@ -1955,7 +1955,7 @@ private:
     HINSTANCE m_hDllInst;
 };
 
-_declspec(dllexport) HRESULT CreateSomeClassInstance(ISomeClass **ppObj)
+HRESULT CreateSomeClassInstance(ISomeClass **ppObj)
 {
     if (ppObj == NULL) return E_POINTER;
 

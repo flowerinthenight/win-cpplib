@@ -6,7 +6,7 @@
 #include "stdafx.h"
 #include "../include/libcore.h"
 
-_declspec(dllexport) LSTATUS ReadBin32(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, BYTE *pData, DWORD *pcbData)
+LSTATUS ReadBin32(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, BYTE *pData, DWORD *pcbData)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -24,7 +24,7 @@ _declspec(dllexport) LSTATUS ReadBin32(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszN
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS ReadBin64(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, BYTE *pData, DWORD *pcbData)
+LSTATUS ReadBin64(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, BYTE *pData, DWORD *pcbData)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -42,7 +42,7 @@ _declspec(dllexport) LSTATUS ReadBin64(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszN
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS ReadBinAuto(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, BYTE *pData, DWORD *pcbData)
+LSTATUS ReadBinAuto(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, BYTE *pData, DWORD *pcbData)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -62,7 +62,7 @@ _declspec(dllexport) LSTATUS ReadBinAuto(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *ps
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS WriteBin32(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, BYTE *pData, DWORD cbData)
+LSTATUS WriteBin32(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, BYTE *pData, DWORD cbData)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -81,7 +81,7 @@ _declspec(dllexport) LSTATUS WriteBin32(HKEY hKeyRoot, wchar_t *pszKey, wchar_t 
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS WriteBin64(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, BYTE *pData, DWORD cbData)
+LSTATUS WriteBin64(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, BYTE *pData, DWORD cbData)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -100,7 +100,7 @@ _declspec(dllexport) LSTATUS WriteBin64(HKEY hKeyRoot, wchar_t *pszKey, wchar_t 
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS WriteBinAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, BYTE *pData, DWORD cbData)
+LSTATUS WriteBinAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, BYTE *pData, DWORD cbData)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -121,7 +121,7 @@ _declspec(dllexport) LSTATUS WriteBinAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS ReadDword32(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, DWORD *pdwData)
+LSTATUS ReadDword32(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, DWORD *pdwData)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -140,7 +140,7 @@ _declspec(dllexport) LSTATUS ReadDword32(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *ps
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS ReadDword64(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, DWORD *pdwData)
+LSTATUS ReadDword64(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *pszName, DWORD *pdwData)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -159,7 +159,7 @@ _declspec(dllexport) LSTATUS ReadDword64(HKEY hKeyRoot, TCHAR *pszKey, TCHAR *ps
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS ReadDwordAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, DWORD *pdwData)
+LSTATUS ReadDwordAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, DWORD *pdwData)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -180,7 +180,7 @@ _declspec(dllexport) LSTATUS ReadDwordAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS WriteDword32(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, DWORD dwData)
+LSTATUS WriteDword32(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, DWORD dwData)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -199,7 +199,7 @@ _declspec(dllexport) LSTATUS WriteDword32(HKEY hKeyRoot, wchar_t *pszKey, wchar_
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS WriteDword64(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, DWORD dwData)
+LSTATUS WriteDword64(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, DWORD dwData)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -218,7 +218,7 @@ _declspec(dllexport) LSTATUS WriteDword64(HKEY hKeyRoot, wchar_t *pszKey, wchar_
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS WriteDwordAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, DWORD dwData)
+LSTATUS WriteDwordAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, DWORD dwData)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -239,7 +239,7 @@ _declspec(dllexport) LSTATUS WriteDwordAuto(HKEY hKeyRoot, wchar_t *pszKey, wcha
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS ReadSz32(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize)
+LSTATUS ReadSz32(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -258,7 +258,7 @@ _declspec(dllexport) LSTATUS ReadSz32(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *p
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS ReadSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize)
+LSTATUS ReadSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -279,7 +279,7 @@ _declspec(dllexport) LSTATUS ReadSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wchar_t 
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS WriteSz32(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, wchar_t *pszData)
+LSTATUS WriteSz32(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, wchar_t *pszData)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -298,7 +298,7 @@ _declspec(dllexport) LSTATUS WriteSz32(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS WriteSz64(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, wchar_t *pszData)
+LSTATUS WriteSz64(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, wchar_t *pszData)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -317,7 +317,7 @@ _declspec(dllexport) LSTATUS WriteSz64(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS WriteSzAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, wchar_t *pszData)
+LSTATUS WriteSzAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_t *pszName, wchar_t *pszData)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -338,7 +338,7 @@ _declspec(dllexport) LSTATUS WriteSzAuto(HKEY hKeyRoot, wchar_t *pszKey, wchar_t
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS ReadMultiSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize)
+LSTATUS ReadMultiSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -359,7 +359,7 @@ _declspec(dllexport) LSTATUS ReadMultiSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wch
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS WriteMultiSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, DWORD cbSize)
+LSTATUS WriteMultiSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, DWORD cbSize)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -380,7 +380,7 @@ _declspec(dllexport) LSTATUS WriteMultiSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wc
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS ReadExpandSz32(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize)
+LSTATUS ReadExpandSz32(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -399,7 +399,7 @@ _declspec(dllexport) LSTATUS ReadExpandSz32(HKEY hKeyRoot, wchar_t* pszKey, wcha
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS ReadExpandSz64(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize)
+LSTATUS ReadExpandSz64(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
@@ -418,7 +418,7 @@ _declspec(dllexport) LSTATUS ReadExpandSz64(HKEY hKeyRoot, wchar_t* pszKey, wcha
     return lStatus;
 }
 
-_declspec(dllexport) LSTATUS ReadExpandSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize)
+LSTATUS ReadExpandSzAuto(HKEY hKeyRoot, wchar_t* pszKey, wchar_t *pszName, wchar_t *pszData, LPDWORD pcbSize)
 {
     LSTATUS lStatus = ERROR_SUCCESS;
     HKEY hKey = NULL;
